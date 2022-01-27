@@ -1,13 +1,12 @@
 package com.api.testes.domain.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter @Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserDTO {
@@ -16,7 +15,7 @@ public class UserDTO {
 	private String name;
 	private String email;
 	
-	@JsonIgnore
-	private String passWord;
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private String password;
 
 }

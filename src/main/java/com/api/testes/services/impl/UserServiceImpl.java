@@ -3,7 +3,6 @@ package com.api.testes.services.impl;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.mapper.Mapper;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,6 +50,13 @@ public class UserServiceImpl implements UserService {
 	public User uptade(UserDTO obj) {
 		findByEmail(obj);
 		return repository.save(mapper.map(obj, User.class));
+	}
+
+	@Override
+	public void delete(Integer id) {
+		findyById(id);
+	 repository.deleteById(id);
+		
 	}
 
 }

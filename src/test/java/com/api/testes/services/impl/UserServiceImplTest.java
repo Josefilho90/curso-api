@@ -13,7 +13,6 @@ import org.mockito.MockitoAnnotations;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import javax.xml.namespace.QName;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,13 +24,13 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class UserServiceImplTest {
 
-    public static final Integer ID = 1;
-    public static final String NAME = "Jose";
-    public static final String EMAIL = "Jose@gmail.com";
-    public static final String PASSWORD = "123";
-    public static final int INDEX = 0;
-    public static final String E_MAIL_JA_CADASTRADO_NO_SISTEMA = "E-mail já cadastrado no sistema";
-    public static final String OBJETO_NAO_ENCONTRADO = "Objeto não encontrado";
+    private static final Integer ID = 1;
+    private static final String NAME = "Jose";
+    private static final String EMAIL = "Jose@gmail.com";
+    private static final String PASSWORD = "123";
+    private static final Integer INDEX = 0;
+    private static final String E_MAIL_JA_CADASTRADO_NO_SISTEMA = "E-mail já cadastrado no sistema";
+    private static final String OBJETO_NAO_ENCONTRADO = "Objeto não encontrado";
     @InjectMocks
     private UserServiceImpl service;
     @Mock

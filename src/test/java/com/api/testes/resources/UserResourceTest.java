@@ -13,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import javax.xml.stream.Location;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -103,7 +102,22 @@ class UserResourceTest {
     }
 
     @Test
-    void update() {
+    void WhenUpdateThenReturnSuccess() {
+        when(service.uptade(userDTO)).thenReturn(user);
+        when(mapper.map(any(),any())).thenReturn(userDTO);
+
+        ResponseEntity<UserDTO> response = resource.update(ID, userDTO);
+
+        assertNotNull(response);
+        assertNotNull(response.getBody());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(ResponseEntity.class, response.getClass());
+        assertEquals(UserDTO.class, response.getBody().getClass());
+
+        assertEquals(ID, response.getBody().getId());
+        assertEquals(NAME, response.getBody().getName());
+        assertEquals(EMAIL, response.getBody().getEmail());
+
     }
 
     @Test
